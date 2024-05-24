@@ -1,0 +1,16 @@
+version: '2'
+services:
+  postgres-db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: sib6_admin
+      POSTGRES_USER: postgres
+      PGDATA: /var/lib/postgres/data
+      POSTGRES_DB: metabase
+    volumes:
+      - postgres_data_sib6:/var/lib/postgres/data
+    ports:
+      - 5436:5432/tcp
+volumes:
+    postgres_data_sib6: #docker volume create pd-data
+      external : true
